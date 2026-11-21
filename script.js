@@ -42,8 +42,22 @@ function updateTodoList(){
         <svg fill = "white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" height="24px" width="24px" fill="#1f1f1f"><path d="M7,21q-0.82,0-1.41-0.59T5,19V6H4V4H9V3h6V4h5V6H19V19q0,0.82-0.59,1.41T17,21H7ZM17,6H7V19H17V6ZM9,17h2V8H9v9Zm4,0h2V8H13v9ZM7,6V19V6Z"/></svg>
         </button>
     `
+
+    const deleteButton = todoLi.querySelector(".delete-button");
+
+    deleteButton.addEventListener("click", ()=>{
+        deleteTodo(todoIndex);
+    });
+
     return todoLi;
 
+}
+
+
+function deleteTodo(todoIndex){
+    allTodos = allTodos.filter((_, i)=> i !== todoIndex);
+    saveTodos();
+    updateTodoList();
 }
 
 
